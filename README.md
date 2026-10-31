@@ -7,6 +7,24 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Setup com Docker
+
+```bash
+git clone https://github.com/kauavmm/Laravel-Bootcamp.git
+cd Laravel-Bootcamp
+cp .env.example .env
+docker compose up -d --build
+docker compose exec php composer install
+docker compose exec php php artisan key:generate
+docker compose exec php php artisan migrate
+docker compose exec php chown -R www-data:www-data storage bootstrap/cache
+npm install
+npm run dev
+```
+
+- Site: http://localhost:8082
+- phpMyAdmin: http://localhost:8080
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
